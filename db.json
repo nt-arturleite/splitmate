@@ -1,23 +1,42 @@
 {
+  "users": [
+    { "id": 1, "name": "Ana", "username": "ana", "password": "password123" },
+    {
+      "id": 2,
+      "name": "Bruno",
+      "username": "bruno",
+      "password": "password123"
+    },
+    {
+      "id": 3,
+      "name": "Carlos",
+      "username": "carlos",
+      "password": "password123"
+    },
+    {
+      "id": 4,
+      "name": "Diana",
+      "username": "diana",
+      "password": "password123"
+    },
+    { "id": 5, "name": "Eva", "username": "eva", "password": "password123" },
+    { "id": 6, "name": "Lucas", "username": "lucas", "password": "password123" }
+  ],
   "groups": [
     {
       "id": "lisbon-trip",
       "name": "Lisbon Trip",
-      "members": [
-        "Ana",
-        "Bruno",
-        "Carlos",
-        "Diana"
-      ]
+      "members": [1, 2, 3, 4]
     },
     {
       "id": "flatmates",
       "name": "Flatmates",
-      "members": [
-        "Bruno",
-        "Eva",
-        "Carlos"
-      ]
+      "members": [2, 5, 3]
+    },
+    {
+      "name": "EI",
+      "members": [6],
+      "id": "PZtU8ORf4PA"
     }
   ],
   "expenses": [
@@ -26,137 +45,40 @@
       "groupId": "lisbon-trip",
       "description": "Dinner at Alfama",
       "amount": 6000,
-      "paidBy": "Ana",
-      "participants": [
-        "Ana",
-        "Bruno",
-        "Carlos",
-        "Diana"
-      ]
+      "paidById": 1,
+      "participantIds": [1, 2, 3, 4]
     },
     {
       "id": "exp-2",
       "groupId": "lisbon-trip",
       "description": "Taxi to hotel",
       "amount": 3200,
-      "paidBy": "Bruno",
-      "participants": [
-        "Ana",
-        "Bruno",
-        "Carlos",
-        "Diana"
-      ]
+      "paidById": 2,
+      "participantIds": [1, 2, 3, 4]
     },
     {
       "id": "exp-3",
       "groupId": "lisbon-trip",
       "description": "Museum tickets",
       "amount": 4800,
-      "paidBy": "Carlos",
-      "participants": [
-        "Ana",
-        "Bruno",
-        "Carlos",
-        "Diana"
-      ]
+      "paidById": 3,
+      "participantIds": [1, 2, 3, 4]
     },
     {
       "id": "exp-4",
       "groupId": "flatmates",
       "description": "Groceries",
       "amount": 8700,
-      "paidBy": "Eva",
-      "participants": [
-        "Bruno",
-        "Eva",
-        "Carlos"
-      ]
+      "paidById": 5,
+      "participantIds": [2, 5, 3]
     },
     {
       "id": "exp-5",
       "groupId": "flatmates",
       "description": "Electricity bill",
       "amount": 4500,
-      "paidBy": "Bruno",
-      "participants": [
-        "Bruno",
-        "Eva",
-        "Carlos"
-      ]
-    },
-    {
-      "groupId": "flatmates",
-      "description": "Teste",
-      "amount": 2000,
-      "paidBy": "Carlos",
-      "participants": [
-        "Bruno",
-        "Eva",
-        "Carlos"
-      ],
-      "id": "6k8uiVe5_04"
-    },
-    {
-      "groupId": "flatmates",
-      "description": "Settle Carlos",
-      "amount": 3066,
-      "paidBy": "Carlos",
-      "participants": [
-        "Eva"
-      ],
-      "id": "e1GS9ryFN7w"
-    },
-    {
-      "groupId": "lisbon-trip",
-      "description": "Settle Bruno",
-      "amount": 300,
-      "paidBy": "Bruno",
-      "participants": [
-        "Carlos"
-      ],
-      "id": "VY01N2Hpj2Q"
-    },
-    {
-      "groupId": "lisbon-trip",
-      "description": "Diana Settle with Ana",
-      "amount": 2500,
-      "paidBy": "Diana",
-      "participants": [
-        "Ana"
-      ],
-      "id": "y83fuPDPnRY"
-    },
-    {
-      "groupId": "lisbon-trip",
-      "description": "Diana Settle",
-      "amount": 1000,
-      "paidBy": "Diana",
-      "participants": [
-        "Carlos"
-      ],
-      "id": "a-mxe9-bL7o"
-    },
-    {
-      "groupId": "lisbon-trip",
-      "description": "Bruno expense",
-      "amount": 1000,
-      "paidBy": "Ana",
-      "participants": [
-        "Bruno"
-      ],
-      "id": "xcGTCB3ieHc"
-    },
-    {
-      "groupId": "flatmates",
-      "description": "cneas",
-      "amount": 2000,
-      "paidBy": "Eva",
-      "participants": [
-        "Carlos",
-        "Bruno",
-        "Eva"
-      ],
-      "id": "SuthL4rO0NY"
+      "paidById": 2,
+      "participantIds": [2, 5, 3]
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -11,6 +11,7 @@ export default function GroupList({ onSelectGroup }: GroupListProps) {
   const [showForm, setShowForm] = useState(false);
   const [name, setName] = useState("");
   const [membersInput, setMembersInput] = useState("");
+  const [currency, setCurrency] = useState<"USD" | "EUR" | "GBP">("EUR");
 
   useEffect(() => {
     getGroups().then(setGroups);
@@ -24,7 +25,7 @@ export default function GroupList({ onSelectGroup }: GroupListProps) {
       .filter(Boolean);
     if (!name.trim() || members.length === 0) return;
 
-    const group = await createGroup(name.trim(), members);
+    const group = await createGroup(name.trim(), members, currency);
     setGroups((prev) => [...prev, group]);
     setName("");
     setMembersInput("");
@@ -75,6 +76,22 @@ export default function GroupList({ onSelectGroup }: GroupListProps) {
                 placeholder="e.g. Ana, Bruno, Carlos"
                 className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal/40 focus:border-teal"
               />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Currency
+              </label>
+              <select
+                value={currency}
+                onChange={(e) =>
+                  setCurrency(e.target.value as "USD" | "EUR" | "GBP")
+                }
+                className="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal/40 focus:border-teal"
+              >
+                <option value="EUR">EUR (€)</option>
+                <option value="USD">USD ($)</option>
+                <option value="GBP">GBP (£)</option>
+              </select>
             </div>
             <button
               type="submit"

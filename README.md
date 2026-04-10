@@ -55,7 +55,7 @@ Pick one (or more!) and build it:
 - **Settle up algorithm** — Compute the minimum number of payments needed to settle all debts and display them as a clear list of "X pays Y €Z"
 - **Delete / edit expenses** — Allow users to remove or modify existing expenses, with confirmation dialogs
 - **Expense categories** — Add categories (food, transport, accommodation, etc.) to expenses with color-coded labels and filtering
-
+-
 ### UI/UX Improvements
 - **Expense search and filter** — Add a search bar and filters (by payer, by amount range, by participant) to the expense list
 - **Dark mode** — Add a theme toggle with dark mode support using Tailwind's dark variant

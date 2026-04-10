@@ -4,6 +4,7 @@ import { getExpenses } from "../api";
 import { computeBalances } from "../utils/balances";
 import ExpenseForm from "./ExpenseForm";
 import BalanceList from "./BalanceList";
+import { unparse } from "papaparse";
 
 interface GroupDetailProps {
   group: Group;
@@ -12,6 +13,19 @@ interface GroupDetailProps {
 
 function formatCents(cents: number): string {
   return (cents / 100).toFixed(2);
+}
+
+function downloadCsv(data: unknown[], filename: string) {
+  const csv = unparse(data);
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const link = document.createElement("a");
+  const url = URL.createObjectURL(blob);
+  link.setAttribute("href", url);
+  link.setAttribute("download", filename);
+  link.style.visibility = "hidden";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 }
 
 export default function GroupDetail({ group, onBack }: GroupDetailProps) {
@@ -56,16 +70,32 @@ export default function GroupDetail({ group, onBack }: GroupDetailProps) {
         />
 
         <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">
-            Expenses
-          </h2>
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-lg font-semibold text-gray-900">Expenses</h2>
+            <button
+              onClick={() => {
+                const data = expenses.map(
+                  ({ description, amount, paidBy, participants }) => ({
+                    description,
+                    amount: formatCents(amount),
+                    paidBy,
+                    participants: participants.join(", "),
+                  }),
+                );
+                downloadCsv(data, `${group.name}-expenses.csv`);
+              }}
+              className="text-sm text-gray-500 hover:text-teal transition-colors flex items-center gap-1 cursor-pointer"
+            >
+              Export to CSV
+            </button>
+          </div>
           {expenses.length === 0 ? (
             <p className="text-gray-500 text-sm">No expenses yet.</p>
           ) : (
             <ul className="divide-y divide-gray-100">
               {expenses.map((expense) => {
                 const perPerson = Math.floor(
-                  expense.amount / expense.participants.length
+                  expense.amount / expense.participants.length,
                 );
                 return (
                   <li

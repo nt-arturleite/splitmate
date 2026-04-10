@@ -3,21 +3,12 @@
     {
       "id": "lisbon-trip",
       "name": "Lisbon Trip",
-      "members": [
-        "Ana",
-        "Bruno",
-        "Carlos",
-        "Diana"
-      ]
+      "members": ["Ana", "Bruno", "Carlos", "Diana"]
     },
     {
       "id": "flatmates",
       "name": "Flatmates",
-      "members": [
-        "Bruno",
-        "Eva",
-        "Carlos"
-      ]
+      "members": ["Bruno", "Eva", "Carlos"]
     }
   ],
   "expenses": [
@@ -27,12 +18,8 @@
       "description": "Dinner at Alfama",
       "amount": 6000,
       "paidBy": "Ana",
-      "participants": [
-        "Ana",
-        "Bruno",
-        "Carlos",
-        "Diana"
-      ]
+      "splitType": "equal",
+      "participants": { "Ana": 1500, "Bruno": 1500, "Carlos": 1500, "Diana": 1500 }
     },
     {
       "id": "exp-2",
@@ -40,12 +27,8 @@
       "description": "Taxi to hotel",
       "amount": 3200,
       "paidBy": "Bruno",
-      "participants": [
-        "Ana",
-        "Bruno",
-        "Carlos",
-        "Diana"
-      ]
+      "splitType": "equal",
+      "participants": { "Ana": 800, "Bruno": 800, "Carlos": 800, "Diana": 800 }
     },
     {
       "id": "exp-3",
@@ -53,12 +36,8 @@
       "description": "Museum tickets",
       "amount": 4800,
       "paidBy": "Carlos",
-      "participants": [
-        "Ana",
-        "Bruno",
-        "Carlos",
-        "Diana"
-      ]
+      "splitType": "equal",
+      "participants": { "Ana": 1200, "Bruno": 1200, "Carlos": 1200, "Diana": 1200 }
     },
     {
       "id": "exp-4",
@@ -66,11 +45,8 @@
       "description": "Groceries",
       "amount": 8700,
       "paidBy": "Eva",
-      "participants": [
-        "Bruno",
-        "Eva",
-        "Carlos"
-      ]
+      "splitType": "equal",
+      "participants": { "Bruno": 2900, "Eva": 2900, "Carlos": 2900 }
     },
     {
       "id": "exp-5",
@@ -78,22 +54,16 @@
       "description": "Electricity bill",
       "amount": 4500,
       "paidBy": "Bruno",
-      "participants": [
-        "Bruno",
-        "Eva",
-        "Carlos"
-      ]
+      "splitType": "equal",
+      "participants": { "Bruno": 1500, "Eva": 1500, "Carlos": 1500 }
     },
     {
       "groupId": "flatmates",
       "description": "Teste",
       "amount": 2000,
       "paidBy": "Carlos",
-      "participants": [
-        "Bruno",
-        "Eva",
-        "Carlos"
-      ],
+      "splitType": "equal",
+      "participants": { "Bruno": 667, "Eva": 667, "Carlos": 666 },
       "id": "6k8uiVe5_04"
     },
     {
@@ -101,9 +71,8 @@
       "description": "Settle Carlos",
       "amount": 3066,
       "paidBy": "Carlos",
-      "participants": [
-        "Eva"
-      ],
+      "splitType": "equal",
+      "participants": { "Eva": 3066 },
       "id": "e1GS9ryFN7w"
     },
     {
@@ -111,9 +80,8 @@
       "description": "Settle Bruno",
       "amount": 300,
       "paidBy": "Bruno",
-      "participants": [
-        "Carlos"
-      ],
+      "splitType": "equal",
+      "participants": { "Carlos": 300 },
       "id": "VY01N2Hpj2Q"
     },
     {
@@ -121,9 +89,8 @@
       "description": "Diana Settle with Ana",
       "amount": 2500,
       "paidBy": "Diana",
-      "participants": [
-        "Ana"
-      ],
+      "splitType": "equal",
+      "participants": { "Ana": 2500 },
       "id": "y83fuPDPnRY"
     },
     {
@@ -131,9 +98,8 @@
       "description": "Diana Settle",
       "amount": 1000,
       "paidBy": "Diana",
-      "participants": [
-        "Carlos"
-      ],
+      "splitType": "equal",
+      "participants": { "Carlos": 1000 },
       "id": "a-mxe9-bL7o"
     },
     {
@@ -141,9 +107,8 @@
       "description": "Bruno expense",
       "amount": 1000,
       "paidBy": "Ana",
-      "participants": [
-        "Bruno"
-      ],
+      "splitType": "equal",
+      "participants": { "Bruno": 1000 },
       "id": "xcGTCB3ieHc"
     },
     {
@@ -151,11 +116,8 @@
       "description": "cneas",
       "amount": 2000,
       "paidBy": "Eva",
-      "participants": [
-        "Carlos",
-        "Bruno",
-        "Eva"
-      ],
+      "splitType": "equal",
+      "participants": { "Carlos": 667, "Bruno": 667, "Eva": 666 },
       "id": "SuthL4rO0NY"
     }
   ],

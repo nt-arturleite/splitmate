@@ -64,9 +64,12 @@ export default function GroupDetail({ group, onBack }: GroupDetailProps) {
           ) : (
             <ul className="divide-y divide-gray-100">
               {expenses.map((expense) => {
-                const perPerson = Math.floor(
-                  expense.amount / expense.participants.length
-                );
+                const participantNames = Object.keys(expense.participants);
+                const isEqual = expense.splitType === 'equal' || !expense.splitType;
+                const perPerson = isEqual
+                  ? Math.floor(expense.amount / participantNames.length)
+                  : null;
+
                 return (
                   <li
                     key={expense.id}
@@ -81,10 +84,17 @@ export default function GroupDetail({ group, onBack }: GroupDetailProps) {
                         <span className="font-medium text-gray-700">
                           {expense.paidBy}
                         </span>{" "}
-                        · €{formatCents(perPerson)} / person
+                        ·{" "}
+                        {perPerson !== null
+                          ? `€${formatCents(perPerson)} / person`
+                          : expense.splitType === 'percentage'
+                            ? 'Split by %'
+                            : expense.splitType === 'shares'
+                              ? 'Split by shares'
+                              : 'Custom split'}
                       </p>
                       <p className="text-xs text-gray-400 mt-0.5">
-                        Split: {expense.participants.join(", ")}
+                        Split: {participantNames.join(", ")}
                       </p>
                     </div>
                     <span className="text-sm font-semibold text-gray-900">
